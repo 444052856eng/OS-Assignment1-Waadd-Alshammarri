@@ -399,7 +399,6 @@ public class SchedulerSimulation {
 
         // Feature 1: Process Priority - show the priority when the process enters the
         // ready queue (display only)
-        System.out
-                .println(Colors.BLUE + "     Priority: " + Colors.BRIGHT_YELLOW + process.getPriority() + Colors.RESET);
+        System.out.println(Colors.BLUE + "     Priority: " + Colors.BRIGHT_YELLOW + process.getPriority() + Colors.RESET);
     }
 }
