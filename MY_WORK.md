@@ -33,13 +33,13 @@
 | **Student ID** | [444052856] |
 | **University Email** | 444052856@std.psau.edu.sa |
 | **GitHub Username** | [444052856eng] |
-| **Repository Link** | [Paste your repository link here] |
+| **Repository Link** | [https://github.com/444052856eng/OS-Assignment1-Waadd-Alshammarri.git] |
  
 ---
 
 ## 🎥 Video Link
 
-**Video Link**: [Paste your video link here]
+**Video Link**: [https://youtu.be/73Ff9yIXjLo?si=gN93awrZF9OSxw8i]
 
 > ⚠️ **WARNING:** The video must be **publicly accessible** ("Anyone with the link can view") on **Google Drive**, **YouTube (Unlisted or Public)** or any other cloud file-sharing system. A private, restricted or broken link counts as a **missing video (-1 mark)**.
 >
