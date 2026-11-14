@@ -29,10 +29,10 @@
 
 | Field | Your Answer |
 |-------|-------------|
-| **Full Name** | [Write your full name here] |
-| **Student ID** | [Write your student ID here] |
-| **University Email** | [yourid]@std.psau.edu.sa |
-| **GitHub Username** | [your-github-username] |
+| **Full Name** | [Waad Madhi AlShammari] |
+| **Student ID** | [444052856] |
+| **University Email** | 444052856@std.psau.edu.sa |
+| **GitHub Username** | [444052856eng] |
 | **Repository Link** | [Paste your repository link here] |
  
 ---
@@ -129,82 +129,103 @@
 
 ## Your Development Log
 
-### Entry 1 - [Date and Time]
+### Entry 1 - [NOV 13,2026,4:30pm]
 **What I did**:
-
+Read the assignment, forked the starter repository and set my student ID.
 **Details**:
-
+* Read the assignment PDF and the README.md of the starter repository
+* Forked makopt/OS-Assignment1-Starter-481 and renamed my fork to OS-Assignment1-Waadd-Alshammarri
+* Checked that the repository is public and that my GitHub account uses my university email
+* Changed line 150 to int studentID = 444052856;
+* Committed and pushed: Set my student ID to personalize the simulation
 **Challenges**:
-
+I was not sure whether renaming the fork would break the link to the starter repository.
 **Solution**:
-
+I checked in Settings that the rename only changes the name and the repository stayed a fork of the starter.
 **Time spent**:
-
+45min
 ---
 
-### Entry 2 - [Date and Time]
+### Entry 2 - [NOV13,2026,9pm]
 **What I did**:
-
+Read the whole SchedulerSimulation.java and ran it for the first time.
 **Details**:
-
+* Read the classes Colors, Process and SchedulerSimulation from top to bottom
+* Understood that Process implements Runnable, and that run() simulates one time quantum with Thread.sleep()
+* Understood how main takes a thread from the queue with poll(), starts it with start() and waits for it with join()
+* Ran the program in VS Code and got 14 processes with a time quantum of 5000ms for my ID
 **Challenges**:
-
+The box characters and progress bars appeared as strange symbols in the PowerShell terminal.
 **Solution**:
-
+I changed the terminal code page to UTF-8 with chcp 65001, and the symbols appeared correctly.
 **Time spent**:
-
+1 hour 15min
 ---
 
-### Entry 3 - [Date and Time]
+### Entry 3 - [NOV14,2026,10:30am]
 **What I did**:
-
+Implemented Feature 1 (Process Priority) and Feature 2 (Context Switch Counter).
 **Details**:
-
+* Added a priority field with setPriority() and getPriority() in the Process class
+* Created a separate Random priorityRandom = new Random(studentID) so the burst times from the original random generator did not change
+* Printed the priority inside addProcessToQueue() when a process enters the ready queue (display only, the queue is still FIFO)
+* Added private static int contextSwitchCount and increased it just before currentThread.start()
+* Printed Total Context Switches after the "ALL PROCESSES COMPLETED" banner
+* Made two separate commits, one for each feature
 **Challenges**:
-
+If I used the same random object for the priority, all burst times after it would change.
 **Solution**:
-
+I used a second Random with the same seed, so my output stayed the same as before.
 **Time spent**:
-
+1 hour 30min
 ---
 
-### Entry 4 - [Date and Time]
+### Entry 4 - [NOV14,2026,2pm]
 **What I did**:
-
+Implemented Feature 3 (Waiting Time Tracking) and the final table.
 **Details**:
-
+* Added waitingTime and enqueueTimestamp fields with markEnqueued(), recordWaiting(), getWaitingTime() and getTurnaroundTime() in Process
+* Called markEnqueued() in addProcessToQueue() and recordWaiting() right before currentThread.start()
+* Stored all processes in an ArrayList<Process> and printed a table with Process Name, Burst Time, Waiting Time and Turnaround Time (Waiting + Burst)
+* Committed the feature and tested the output
 **Challenges**:
-
+A process enters the ready queue several times, so one start time was not enough, and every re-queue creates a new Thread object.
 **Solution**:
-
+I kept the time data inside the Process object and added each waiting period to waitingTime, so the total is correct after all rounds.
 **Time spent**:
-
+2hour
 ---
 
-### Entry 5 - [Date and Time]
+### Entry 5 - [NOV14,2026,5pm]
 **What I did**:
-
+Wrote the reflection and the technical answers in this file.
 **Details**:
-
+* Wrote the answers for Part B (reflection) and Part C (technical answers)
+* Used the real output of my run, for example P2 with a burst time of 11145ms, as the example in Question 2
+* Checked that every answer matches the required number of sentences
+* Committed: Docs: Completed reflection and technical answers
 **Challenges**:
-
+Choosing a clear example for the thread lifecycle question.
 **Solution**:
-
+I followed P1 through the code step by step: new Thread, start(), sleep(), join() and the end of run().
 **Time spent**:
-
+1hours 15min
 ---
 
-### Entry 6 - [Optional - Date and Time]
+### Entry 6 - [NOV14,2026,7pm]
 **What I did**:
-
+Prepared and recorded the demo video, then added the link.
 **Details**:
-
+* Prepared a short script for my name, ID, the three features, the run, one threading concept and the commit history
+* Recorded the video in VS Code and uploaded it to Google Drive with public access
+* Tested the link in an incognito window and added it to this file
+* Committed: Docs: Added demo video link
 **Challenges**:
-
+The full simulation takes about two minutes to finish, and the video must be only 2 to 3 minutes.
 **Solution**:
-
+I showed the start of the run with my unique parameters and sped up the waiting part in the video editor.
 **Time spent**:
-
+1 hours 30min
 ---
 
 ## Development Log Summary
@@ -237,7 +258,7 @@
 
 **Your Answer:** *(5-7 sentences)*
 
-[Write your answer here.]
+[Through this assignment I learned that multithreading lets one program run several tasks as separate threads, and that in Java the simplest way is to put the task inside a class that implements Runnable. In my code the Process class implements Runnable, and the scheduler creates a thread with new Thread(process) and starts it with start(), which calls run(). I also learned that the main thread does not wait for the thread it starts, so Thread.join() is needed to make the scheduler wait until the process finishes its time quantum. Thread.sleep() was used inside run() to simulate CPU work, and in my output it paused each process for up to 5000ms in five small steps. What surprised me is that a thread object cannot be started twice, so every time a process returns to the ready queue the program creates a new Thread for the same Process. This connected the theory of threads and Round-Robin scheduling from the textbook with real code that I could run and watch.]
 
 ## Question 2: What was the most challenging part of this assignment?
 
@@ -245,7 +266,7 @@
 
 **Your Answer:** *(5-7 sentences)*
 
-[Write your answer here.]
+[The most challenging part for me was Feature 3, the waiting time tracking, because I had to understand exactly when a process is waiting. At first I thought one start time for each process was enough, but a process leaves and enters the ready queue several times; for example, P2 in my output was added to the ready queue three times. This means the waiting time is the sum of several separate periods and not one number. The second difficulty was that every re-queue creates a new Thread in addProcessToQueue(), so I could not keep the timing data in the thread and I had to store it inside the Process object. Another problem was that the PowerShell terminal showed strange characters instead of the boxes and progress bars of the output. These problems took time because the waiting time depends on real time with System.currentTimeMillis(), so the numbers are a little different in each run..]
 
 ## Question 3: How did you overcome the challenges you faced?
 
@@ -253,7 +274,7 @@
 
 **Your Answer:** *(5-7 sentences)*
 
-[Write your answer here.]
+[First I re-read the README and then read SchedulerSimulation.java from top to bottom, and I ran it once without any change to see the normal output. I followed one process, P2, in the console to see when it entered the queue, when it ran, and when it was added again after its quantum. Then I solved Feature 3 in small steps: I added markEnqueued() inside addProcessToQueue() and recordWaiting() right before currentThread.start(), and I tested the values after each change. For the strange characters I changed the terminal code page with chcp 65001, and the UTF-8 symbols appeared correctly. I made a separate commit after each feature, so I could always go back to the last working version if something broke. Writing a development log entry after each work session also helped me remember what I had changed and why.]
 
 ## Question 4: How can you apply multithreading concepts in real-world applications?
 
@@ -261,7 +282,7 @@
 
 **Your Answer:** *(5-7 sentences)*
 
-[Write your answer here.]
+[Multithreading is used in many applications where several tasks must progress at the same time. A web browser is a good example, because one thread can download a file while another plays a video and another keeps the page responsive, like the processes in my simulation that all get CPU time in turn. A music player on a phone plays the audio in one thread while another thread updates the screen, so the user does not feel that the app is frozen. In operating systems, the CPU scheduler works like my project: each program gets a time quantum, then a context switch gives the CPU to the next one, which is what my Total Context Switches counter measures. A web server also uses a thread for each client request, so one slow client does not block the others. So the basic tools I used here, such as Runnable, start(), join(), sleep() and the time quantum, are the building blocks of these real systems.]
 
 ### Optional: What would you like to learn more about?
 
@@ -293,7 +314,7 @@
 
 **Your Answer:** *(3-5 sentences)*
 
-[Write your answer here.]
+[A process is a program in execution with its own memory space (code, data, heap and stack), while a thread is a unit of execution inside a process that shares the code, data and open files with the other threads of the same process and has only its own stack, program counter and registers. Two important differences are that creating a thread is faster and cheaper than creating a process, and that threads communicate directly through shared memory while processes need inter-process communication such as message passing. In SchedulerSimulation.java the class Process is only a simulated process object, and each one runs inside a real Java thread created with new Thread(process) in addProcessToQueue(). We used threads because the main scheduler thread and the process threads share the same processQueue and processMap in memory, which is simpler and lighter than creating 14 separate operating system processes.]
 
 ## Question 2: Ready Queue Behavior
 
@@ -305,9 +326,26 @@
 
 **Your Answer:** *(3-5 sentences)*
 
-[Write your answer here.]
+[In Round-Robin, when a process does not finish within its time quantum it stops, yields the CPU for a context switch, and goes to the end of the ready queue to wait for its next turn. In my output P2 has a burst time of 11145ms with a quantum of 5000ms, so it ran 5000ms (44%, remaining 6145ms), was re-queued, ran another 5000ms (89%, remaining 1145ms), was re-queued again, and finished in its third run of 1145ms, so it was re-queued 2 times before it finished. Re-queueing matters for fairness because no long process can keep the CPU, and every process gets a turn in the same order, while short processes such as P9 (4612ms) finish in their first turn.]
 
 Example from my output:
+▶️ P2 executing quantum [5000ms]
+  ⏸ P2 completed quantum 5000ms │ Overall progress: 44%
+     Remaining time: 6145ms
+  ↻ P2 yields CPU for context switch
+
+  ➕ P2 added to ready queue │ Burst time: 11145ms
+  ...
+  ⏸ P2 completed quantum 5000ms │ Overall progress: 89%
+     Remaining time: 1145ms
+  ↻ P2 yields CPU for context switch
+
+  ➕ P2 added to ready queue │ Burst time: 11145ms
+  ...
+  ▶️ P2 executing quantum [1145ms]
+  ⏸ P2 completed quantum 1145ms │ Overall progress: 100%
+     Remaining time: 0ms
+  ✓ P2 finished execution!
 ```
 [Paste a relevant snippet from your program output here showing a process being re-queued]
 ```
@@ -323,15 +361,15 @@ Example from my output:
 
 **Your Answer:** *(3-5 sentences overall; one short explanation per state)*
 
-1. **New**: [When is P1 in the New state?]
+1. **New**: [P1's thread is in the New state right after new Thread(process) in addProcessToQueue(), before start() is called.]
 
-2. **Runnable**: [When does P1 become Runnable?]
+2. **Runnable**: [When the scheduler loop calls currentThread.start(), the thread becomes Runnable and is ready to get the CPU.]
 
-3. **Running**: [When is P1 Running?]
+3. **Running**: [  P1 is Running when the JVM gives it the CPU and it executes the code inside run() for its quantum (5000ms for my ID)]
 
-4. **Waiting**: [When and why would a thread be Waiting?]
+4. **Waiting**: [Inside run(), Thread.sleep(stepTime) puts P1's thread in a timed waiting state, and at the same time the main thread is waiting at currentThread.join() until P1 finishes.]
 
-5. **Terminated**: [When is P1 Terminated?]
+5. **Terminated**: [When run() ends, P1's thread is Terminated; if P1 still has remaining time, a new Thread is created for it, because a terminated thread cannot be started again.]
 
 ## Question 4: Real-World Applications
 
@@ -341,32 +379,33 @@ Example from my output:
 
 **Your Answer:** *(3-5 sentences per example)*
 
-### Example 1 (operating-system level): [Name of scenario]
+### Example 1 (operating-system level): [(operating-system level): CPU time sharing in a desktop operating system]
 
 **Description**:
-[Describe the real-world scenario.]
+[ In an operating system such as Windows, many programs (a browser, a music player, a text editor) run at the same time on a limited number of CPU cores. The scheduler gives each program a small time slice and then performs a context switch to the next one, like the Process objects and the time quantum in my simulation.]
 
 **Why Round-Robin works well here**:
-[Fairness, responsiveness, predictability?]
+[ Round-Robin is fair because every program gets the CPU regularly and no program can keep it forever. It also gives good responsiveness, because the user does not wait long to see a reaction from any program.]
 
-### Example 2: [Name of application/scenario]
+### Example 2: [web server handling many client requests]
 
 **Description**:
-[Describe the real-world scenario or application.]
+[ A web server receives many requests from different users, and it can use a thread for each request. The server shares its processing time among these threads in turns, so each request is a "process" and the time slice is the quantum]
 
 **Why Round-Robin works well here**:
-[Fairness, responsiveness, predictability?]
+[A long request cannot block the short ones, so every user gets a response in a reasonable time. The behavior is also predictable, because each thread gets its turn in a known order]
 
 ## Summary
 
 **Key concepts I understood through these questions:**
-1.
-2.
-3.
+1. The difference between a process and a thread, and why threads share memory.
+2. How Round-Robin uses the time quantum and the ready queue, and why re-queueing makes it fair.
+3. The thread lifecycle and the roles of start(), sleep() and join().
+
 
 **Concepts I need to study more:**
-1.
-2.
+1. Synchronization between threads (locks and semaphores).
+2. Other scheduling algorithms and how their waiting times compare with Round-Robin.
 
 ---
 
